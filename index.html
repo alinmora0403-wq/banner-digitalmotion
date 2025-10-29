@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banner Interactivo - DigitalMotion Studio</title>
+
+<style>
+/* ============================================
+   ESTILOS GENERALES DEL BANNER
+   ============================================ */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: Arial, Helvetica, sans-serif;
+  perspective: 1000px; /* Permite efecto 3D real en rotaciones */
+}
+
+.banner {
+  text-align: center;
+  color: white;
+}
+
+/* ============================================
+   a. LOGO SIMULADO DE LA EMPRESA
+   ============================================ */
+.logo {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  background: #00bcd4; /* Color inicial del logo */
+  border-radius: 50%; /* Forma circular simulando un logo */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+
+  /* Animaciones: aparece girando + flota */
+  animation: aparecerRotar 3s ease-in-out forwards, flotar 3s ease-in-out infinite;
+  -webkit-animation: aparecerRotar 3s ease-in-out forwards, flotar 3s ease-in-out infinite;
+  -moz-animation: aparecerRotar 3s ease-in-out forwards, flotar 3s ease-in-out infinite;
+
+  /* Transición para el efecto hover */
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease; /* Compatibilidad con navegadores WebKit */
+  -moz-transition: all 0.4s ease;    /* Compatibilidad con Firefox */
+}
+
+/* ============================================
+   b. ANIMACIÓN AL CARGAR LA PÁGINA
+   Crece desde 0 hasta su tamaño real y rota 360°
+   ============================================ */
+@keyframes aparecerRotar {
+  0% {
+    transform: scale(0) rotateY(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateY(360deg);
+    opacity: 1;
+  }
+}
+
+/* Compatibilidad con navegadores antiguos */
+@-webkit-keyframes aparecerRotar {
+  0% {
+    -webkit-transform: scale(0) rotateY(0deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(360deg);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes aparecerRotar {
+  0% {
+    -moz-transform: scale(0) rotateY(0deg);
+    opacity: 0;
+  }
+  100% {
+    -moz-transform: scale(1) rotateY(360deg);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   c. EFECTO AL PASAR EL CURSOR SOBRE EL LOGO
+   Cambia color, sombra y tamaño
+   ============================================ */
+.logo:hover {
+  background: #0097a7; /* Cambia el color del fondo */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* Sombra más intensa */
+  transform: scale(1.1) rotateY(15deg); /* Aumenta tamaño y añade ligera rotación */
+  -webkit-transform: scale(1.1) rotateY(15deg);
+  -moz-transform: scale(1.1) rotateY(15deg);
+}
+
+/* ============================================
+   d. ANIMACIÓN DE FLOTAR CONTINUAMENTE
+   Movimiento vertical repetitivo
+   ============================================ */
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Compatibilidad con navegadores WebKit y Mozilla */
+@-webkit-keyframes flotar {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-12px);
+  }
+}
+
+@-moz-keyframes flotar {
+  0%, 100% {
+    -moz-transform: translateY(0);
+  }
+  50% {
+    -moz-transform: translateY(-12px);
+  }
+}
+
+/* ============================================
+   TEXTO DEL BANNER
+   ============================================ */
+h1 {
+  margin-top: 20px;
+  font-size: 1.8em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+</style>
+</head>
+
+<body>
+  <div class="banner">
+    <!-- a. Logo simulado -->
+    <div class="logo"></div>
+    <h1>DigitalMotion Studio</h1>
+  </div>
+</body>
+</html>
