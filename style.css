@@ -1,0 +1,70 @@
+/* ==== ESTILOS GENERALES DEL BANNER ==== */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: sans-serif;
+  perspective: 1000px; /* Da profundidad al efecto 3D */
+}
+
+.banner {
+  text-align: center;
+}
+
+/* ==== LOGO SIMULADO ==== */
+.logo {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  background: #00bcd4;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform-style: preserve-3d;
+  animation: aparecerRotar 3s ease-in-out forwards, flotar 3s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+
+/* ==== EFECTO AL PASAR EL CURSOR ==== */
+.logo:hover {
+  background: #0097a7;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  transform: scale(1.1) rotateY(20deg);
+}
+
+/* ==== ANIMACIÓN INICIAL: CRECIMIENTO Y ROTACIÓN ==== */
+@keyframes aparecerRotar {
+  0% {
+    transform: scale(0) rotateY(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateY(360deg);
+    opacity: 1;
+  }
+}
+
+/* ==== ANIMACIÓN DE FLOTAR ==== */
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+/* ==== PREFIJOS PARA COMPATIBILIDAD ENTRE NAVEGADORES ==== */
+/* Se usan prefijos para garantizar que animaciones y transformaciones 3D
+   funcionen en navegadores más antiguos o basados en diferentes motores */
+@-webkit-keyframes aparecerRotar {
+  0% { -webkit-transform: scale(0) rotateY(0deg); opacity: 0; }
+  100% { -webkit-transform: scale(1) rotateY(360deg); opacity: 1; }
+}
+
+@-webkit-keyframes flotar {
+  0%, 100% { -webkit-transform: translateY(0) scale(1); }
+  50% { -webkit-transform: translateY(-10px) scale(1.02); }
+}
